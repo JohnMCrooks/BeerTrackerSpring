@@ -5,17 +5,17 @@
     <title>Beer Tracker</title>
 </head>
 <body>
-
-<a href="/logout">Logout</a>
+<form a></form>
+<button action="/logout" methods="post">Logout</button>
 
 <br><br>
 
 <a href="/">All</a>
-<a href="/type=Ale">Ales</a>
-<a href="/type=Lager">Lagers</a>
-<a href="/type=Pilsner">Pilsners</a>
-<a href="/type=Stout">Stouts</a>
-<a href="/type=Other">Others</a>
+<a href="/?type=Ale">Ales</a>
+<a href="/?type=Lager">Lagers</a>
+<a href="/?type=Pilsner">Pilsners</a>
+<a href="/?type=Stout">Stouts</a>
+<a href="/?type=Other">Others</a>
 
 <br><br>
 
@@ -26,7 +26,7 @@
 
 <br><br>
 
-<form action="add-beer" method="post">
+<form action="/add-beer" method="post">
     <input type="text" placeholder="Beer Name" name="beername" required/>
     <select name="beertype" required>
         <option value="Ale">Ale</option>
@@ -39,8 +39,8 @@
     <button type="submit">Submit</button>
 </form>
 
-{{#beers}}
-{{name}} - {{type}} - {{calories}} by {{#user}}{{name}}{{/user}}<br>
-{{/beers}}
+{{#beerRepo}}
+    {{name}} - {{type}} - {{calories}} by {{#user}}{{name}}{{/user}}<br>
+{{/beerRepo}}
 </body>
 </html>
