@@ -97,7 +97,7 @@ public class BeerTrackerController {
             user.password = PasswordStorage.createHash(password);
             userRepo.save(user);
         }
-        else if (!PasswordStorage.verifyPassword(user.password, password)) {
+        else if (!PasswordStorage.verifyPassword(password, user.password )) {
             throw new Exception("Wrong password");
         }
         session.setAttribute("username", username);
